@@ -13,16 +13,17 @@ class CMApp{
 		      Scanner s2 = new Scanner(System.in);
 		      int ch;
 		      do {
-		         System.out.println("1.ADD");
-		         System.out.println("2.VIEW");
-		         System.out.println("3.UPDATE");
-		         System.out.println("4.DELETE");
-		         System.out.print("Enter Your Choice : ");
+		         System.out.println("1. Add a new customer");
+		         System.out.println("2. View existing customers");
+		         System.out.println("3. Update an existing customer");
+		         System.out.println("4. Delete a customer");
+		         System.out.println("----------------------------");
+		         System.out.print("What would you like to do? : ");
 		         ch = s.nextInt();
 
 		         switch(ch){
 		            case 1:
-		               System.out.print("Enter Employee Number : ");
+		               System.out.print("Enter Customer Number : ");
 		               int cno = s.nextInt();
 		               System.out.print("Enter First Name : ");
 		               String cfirstname = s1.nextLine();
@@ -43,7 +44,7 @@ class CMApp{
 		            break;
 		            case 3:
 		               boolean found = false;
-		               System.out.print("Enter Cnumber to View :");
+		               System.out.print("Enter Customer Number to View :");
 		               int cnumber = s.nextInt();
 		               System.out.println("----------------------------");
 		               i = c.iterator();
@@ -85,7 +86,7 @@ class CMApp{
 		            break;
 		            case 5:
 		               found = false;
-		               System.out.print("Enter cnumber to Update :");
+		               System.out.print("Enter Customer Number to Update :");
 		               cnumber = s.nextInt();
 		               
 		               ListIterator<Customer>li = c.listIterator();
