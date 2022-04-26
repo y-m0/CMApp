@@ -7,16 +7,13 @@ import java.util.Scanner;
 class CMApp{			
 		   public static void main(String[] args) {
 		      
-		      List<Customer> c = new ArrayList<Customer>();
+		      List<Customer> customerList = new ArrayList<Customer>();
 		      Scanner s = new Scanner(System.in);
 		      Scanner s1 = new Scanner(System.in);
 		      Scanner s2 = new Scanner(System.in);
 		      int ch;
 		      do {
-		    	  System.out.println("Please choose from the following options:");
-		    	  System.out.println("");
-		    	  System.out.println("----------------------------");
-		    	  System.out.println("");
+		    	 System.out.println("");
 		         System.out.println("1. Add a new customer");
 		         System.out.println("");
 		         System.out.println("2. View existing customers");
@@ -25,14 +22,12 @@ class CMApp{
 		         System.out.println("");
 		         System.out.println("4. Delete a customer");
 		         System.out.println("");
-		         System.out.println("----------------------------");
-		         System.out.println("");
-		         System.out.print("Let us know if you have any complaints or suggestions. Thanks! : ");
+		         System.out.print("Please choose from the options above: ");
 		         ch = s.nextInt();
 
 		         switch(ch){
 		            case 1:
-		               System.out.print("Enter Customer Number : ");
+		               System.out.print("Enter new Customer Number: ");
 		               int cno = s.nextInt();
 		               System.out.print("Enter First Name : ");
 		               String cfirstname = s1.nextLine();
@@ -40,30 +35,40 @@ class CMApp{
 		               String csurname = s2.nextLine();
 		               
 
-		               c.add(new Customer(cno,cfirstname,csurname));
+		               customerList.add(new Customer(cno,cfirstname,csurname));
 		            break;
 		            case 2:
-		               System.out.println("----------------------------");
-		               Iterator<Customer> i = c.iterator();
+		            	System.out.print("Enter Customer Number to View :");
+		               Iterator<Customer> i = customerList.iterator();
 		               while(i.hasNext()){
 		                  Customer e = i.next(); 
 		                  System.out.println(e);
 		               }
-		               System.out.println("----------------------------");
+		    
 		            break;
 		            case 3:
 		               boolean found = false;
-		               System.out.print("Enter Customer Number to View :");
+		               System.out.print("Enter Customer Number to update :");
 		               int cnumber = s.nextInt();
-		               System.out.println("----------------------------");
-		               i = c.iterator();
-		               while(i.hasNext()){
-		                  Customer e = i.next();
-		                  if(e.getcnumber() == cnumber)  {
-		                     System.out.println(e);
-		                     found = true;
-		                  }
-		               }
+//		               i = customerList.iterator();
+//		               while(i.hasNext()){
+//		                  Customer e = i.next();
+//		                  if(e.getcnumber() == cnumber)  {
+//		                     System.out.println(e);
+//		                     found = true;
+//		                  }
+//		               }
+		               System.out.print("Enter new Customer Number: ");
+		               cno = s.nextInt();
+		               System.out.print("Enter First Name : ");
+		               cfirstname = s1.nextLine();
+		               System.out.print("Enter Surname : ");
+		               csurname = s2.nextLine();	             
+		               Customer updateCustomer= new Customer(cno,cfirstname,csurname);
+		               
+		               
+		               
+		               customerList.set(cnumber, updateCustomer);
 		               
 		               if(!found){
 		                  System.out.println("Record Not Found");
@@ -73,10 +78,10 @@ class CMApp{
 
 		            case 4:
 		               found = false;
-		               System.out.print("Enter cnumber to Delete :");
+		               System.out.print("Enter Customer Number to Delete :");
 		               cnumber = s.nextInt();
 		               System.out.println("----------------------------");
-		               i = c.iterator();
+		               i = customerList.iterator();
 		               while(i.hasNext()){
 		                  Customer e = i.next();
 		                  if(e.getcnumber() == cnumber)  {
@@ -98,7 +103,7 @@ class CMApp{
 		               System.out.print("Enter Customer Number to Update :");
 		               cnumber = s.nextInt();
 		               
-		               ListIterator<Customer>li = c.listIterator();
+		               ListIterator<Customer>li = customerList.listIterator();
 		               while(li.hasNext()){
 		                  Customer e = li.next();
 		                  if(e.getcnumber() == cnumber)  {
