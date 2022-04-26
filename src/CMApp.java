@@ -13,12 +13,21 @@ class CMApp{
 		      Scanner s2 = new Scanner(System.in);
 		      int ch;
 		      do {
+		    	  System.out.println("Please choose from the following options:");
+		    	  System.out.println("");
+		    	  System.out.println("----------------------------");
+		    	  System.out.println("");
 		         System.out.println("1. Add a new customer");
+		         System.out.println("");
 		         System.out.println("2. View existing customers");
+		         System.out.println("");
 		         System.out.println("3. Update an existing customer");
+		         System.out.println("");
 		         System.out.println("4. Delete a customer");
+		         System.out.println("");
 		         System.out.println("----------------------------");
-		         System.out.print("What would you like to do? : ");
+		         System.out.println("");
+		         System.out.print("Let us know if you have any complaints or suggestions. Thanks! : ");
 		         ch = s.nextInt();
 
 		         switch(ch){
